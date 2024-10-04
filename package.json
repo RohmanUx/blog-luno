@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "npm-run-all --parallel dev:frontend dev:backend",
     "dev:frontend": "npm run dev --workspace frontend",
-    "dev:backend": "npm run dev --workspace backend",
+    "dev:backend": "npm run dev --workspace backend", 
+    "dev:prisma": "npx -w backend prisma generate dev",
+
     "build": "npm run build --workspace frontend && npm run build --workspace backend",
     "start:all": "npm run start --workspace frontend && npm run start --workspace backend",
     "start:frontend": "npm run start --workspace frontend",
