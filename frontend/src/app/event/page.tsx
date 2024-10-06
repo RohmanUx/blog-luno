@@ -8,8 +8,8 @@ import {
   AiFillCodepenCircle,
   AiOutlineProfile,
   AiOutlineUnorderedList,
-} from "react-icons/ai";
-import { Navbar } from "../layout exmple/navbar";
+} from "react-icons/ai" ;   
+
 
 const Dashboard: React.FC = () => {
   const router = useRouter();
