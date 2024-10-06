@@ -9,7 +9,6 @@ import {
   AiOutlineProfile,
   AiOutlineUnorderedList,
 } from "react-icons/ai";
-} from "react-icons/ai" ;   
 
 
 const Dashboard: React.FC = () => {
