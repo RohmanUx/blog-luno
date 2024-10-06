@@ -22,11 +22,15 @@ const ThemeButton: React.FC<ThemeButtonProps> = ({ darkMode, setDarkMode }) => {
             : 'bg-black/80 text-white hover:bg-blue-500 rounded-full backdrop-blur-3xl border border-black/40 dark:border-white/80'
         }`} 
       >
-        {darkMode ? (
-          <MdSunny className='h-3 w-2' />
-        ) : (
+        {darkMode 
+        ? (
           <FaMoon className='h-3 w-2' />
-        )}
+        )
+        : 
+        (
+          <MdSunny className='h-3 w-2' />
+        ) 
+        }
       </button>
       );
 };

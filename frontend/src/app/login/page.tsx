@@ -1,61 +1,61 @@
-'use client';
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useRouter } from 'next/navigation';
-import { Navbar } from '../layout/navbar';
-import Image from 'next/image';
-import { MdVisibility, MdVisibilityOff } from 'react-icons/md';
-import Link from 'next/link';
+"use client";
+import React, { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { Navbar } from "../layout exmple/navbar";
+import Image from "next/image";
+import { MdVisibility, MdVisibilityOff } from "react-icons/md";
+import Link from "next/link";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const router = useRouter();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
+    setError("");
 
     try {
       const response = await axios.post(
-        'http://localhost:8000/api/auth/login',
+        "http://localhost:8000/api/auth/login",
         {
           email,
           password,
-        },
+        }
       );
 
       if (response.data.success) {
         // Store token in localStorage or cookies
-        localStorage.setItem('token', response.data.result.token);
+        localStorage.setItem("token", response.data.result.token);
 
         // Redirect user based on role
-        if (response.data.result.role === 'ADMIN') {
-          router.push('/event');
+        if (response.data.result.role === "ADMIN") {
+          router.push("/event");
         } else {
-          router.push('/');
+          router.push("/");
         }
       } else {
         setError(response.data.message);
       }
     } catch (error: any) {
-      console.error('Login error:', error);
-      setError(error.response?.data?.message || 'Something went wrong');
+      console.error("Login error:", error);
+      setError(error.response?.data?.message || "Something went wrong");
     }
   };
 
   return (
     <div className="pt-0 h-screen">
-        <Image
-          src="/Untitled design.png"
-          alt="Login Background"
-          layout="fill" 
-          objectFit="cover"
-          className="absolute inset-0 z-10 pt-10"
-        />
+      <Image
+        src="/Untitled design.png"
+        alt="Login Background"
+        layout="fill"
+        objectFit="cover"
+        className="absolute inset-0 z-10 pt-10"
+      />
       <div className="h-screen flex inset-0 items-center pt-0 bg-white/80 dark:bg-black/80">
-                <div className="w-96 bg-slate-100/60 m-auto shadow-lg rounded-md p-7 backdrop-blur-3xl z-10">
+        <div className="w-96 bg-slate-100/60 m-auto shadow-lg rounded-md p-7 backdrop-blur-3xl z-10">
           <h1 className="text-center font-semibold text-2xl">LOGIN</h1>
           <div className="flex flex-col justify-between mt-4">
             <div>
@@ -92,12 +92,12 @@ const LoginPage = () => {
             </div>
             <div className="text-center">
               <Link href="/forgot-password" className="text-gray-950">
-                Reset password? 
-              </Link> 
-              <span> or </span> 
-                <Link href="/register" className="ml-1 underline">
-                  Register Now
-                </Link>
+                Reset password?
+              </Link>
+              <span> or </span>
+              <Link href="/register" className="ml-1 underline">
+                Register Now
+              </Link>
             </div>
           </div>
         </div>

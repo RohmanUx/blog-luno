@@ -11,7 +11,7 @@ const QueryProvider: React.FunctionComponent<IQueryProviderProps> = ({
   children,
 }) => {
   return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <QueryClientProvider client={queryClient}>{children} </QueryClientProvider>
   );
 };
 

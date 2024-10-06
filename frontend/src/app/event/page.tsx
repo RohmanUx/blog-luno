@@ -1,6 +1,6 @@
-'use client';
-import React from 'react';
-import { useRouter } from 'next/navigation';
+"use client";
+import React from "react";
+import { useRouter } from "next/navigation";
 import {
   AiFillAlert,
   AiFillAlipayCircle,
@@ -8,8 +8,8 @@ import {
   AiFillCodepenCircle,
   AiOutlineProfile,
   AiOutlineUnorderedList,
-} from 'react-icons/ai';
-import { Navbar } from '../layout/navbar';
+} from "react-icons/ai";
+import { Navbar } from "../layout exmple/navbar";
 
 const Dashboard: React.FC = () => {
   const router = useRouter();
@@ -27,7 +27,7 @@ const Dashboard: React.FC = () => {
           </h1>
           <div className="grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-6xl px-4 flex justify-center">
             <div
-              onClick={() => handleNavigation('dashboard/eventCheck')}
+              onClick={() => handleNavigation("dashboard/eventCheck")}
               className="cursor-pointer p-6 bg-gray-0 border-gray-900/40 border-[1px] bg-opacity-80 rounded-sm shadow-md backdrop-blur-md h-[340px] flex items-center flex-col justify-center"
             >
               <AiFillAlert className="text-5xl sm:text-6xl text-gray-900/80 mx-auto mb-4 w-20 md:w-40" />
@@ -37,39 +37,40 @@ const Dashboard: React.FC = () => {
             </div>
 
             <div
-              onClick={() => handleNavigation('/dashboard/profile')}
+              onClick={() => handleNavigation("/dashboard/profile")}
               className="cursor-pointer p-6 bg-gray-0 border-gray-900/40 border-[1px] bg-opacity-80 rounded-sm shadow-md backdrop-blur-md w-[340px] h-[340px] flex items-center flex-col justify-center"
             >
               <AiFillCodepenCircle className="text-5xl sm:text-6xl text-gray-900/80 mx-auto mb-4 w-20 md:w-40" />
               <h2 className="text-sm sm:text-2xl md:text-2xl font-bold text-center text-gray-900">
                 Profile
               </h2>
-            </div> 
-            <div className=''> 
-            <div
-              onClick={() => handleNavigation('/dashboard/balance')}
-              className="cursor-pointer p-6 bg-gray-0 border-gray-900/40 border-[1px] bg-opacity-80 rounded-sm shadow-md backdrop-blur-md mb-6"
-            >
-              <AiFillAlipayCircle className="text-5xl sm:text-6xl text-gray-900/80 mx-auto mb-4 w-20 md:w-40" />
-              <h2 className="text-sm sm:text-2xl md:text-2xl font-bold text-center text-gray-900">
-                Balance
-              </h2>
             </div>
-            <div
-              onClick={() => handleNavigation('/dashboard/help')}
-              className="cursor-pointer p-6 bg-gray-0 border-gray-900/40 border-[1px] bg-opacity-80 rounded-sm shadow-md backdrop-blur-md"
-            >
-              <AiFillApi className="text-5xl sm:text-6xl text-gray-900/80 mx-auto mb-4 w-20 md:w-40" />
-              <h2 className="text-sm sm:text-2xl md:text-2xl font-bold text-center text-gray-900">
-                Help request
-              </h2>
-            </div> </div> 
+            <div className="">
+              <div
+                onClick={() => handleNavigation("/dashboard/balance")}
+                className="cursor-pointer p-6 bg-gray-0 border-gray-900/40 border-[1px] bg-opacity-80 rounded-sm shadow-md backdrop-blur-md mb-6"
+              >
+                <AiFillAlipayCircle className="text-5xl sm:text-6xl text-gray-900/80 mx-auto mb-4 w-20 md:w-40" />
+                <h2 className="text-sm sm:text-2xl md:text-2xl font-bold text-center text-gray-900">
+                  Balance
+                </h2>
+              </div>
+              <div
+                onClick={() => handleNavigation("/dashboard/help")}
+                className="cursor-pointer p-6 bg-gray-0 border-gray-900/40 border-[1px] bg-opacity-80 rounded-sm shadow-md backdrop-blur-md"
+              >
+                <AiFillApi className="text-5xl sm:text-6xl text-gray-900/80 mx-auto mb-4 w-20 md:w-40" />
+                <h2 className="text-sm sm:text-2xl md:text-2xl font-bold text-center text-gray-900">
+                  Help request
+                </h2>
+              </div>{" "}
+            </div>
           </div>
           <div className="text-md w-full justify-center text-center py-10 text-gray-700">
-            {' '}
-            Devloper: RohmanUX Web:Rohman.dev Store:Fourty.store{' '}
+            {" "}
+            Devloper: RohmanUX Web:Rohman.dev Store:Fourty.store{" "}
           </div>
-        </div>{' '}
+        </div>{" "}
       </div>
     </div>
   );

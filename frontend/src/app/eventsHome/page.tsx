@@ -1,17 +1,17 @@
-'use client';
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Button } from '@/components/ui/button'; // Sesuaikan path sesuai kebutuhan
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+"use client";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Button } from "@/components/ui/button"; // Sesuaikan path sesuai kebutuhan
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from '@/components/ui/carousel'; // Import Carousel dari ShadCN UI
-import Animation from '../layout/circle';
-import CircularText from '../layout/circle';
-import { Swiper, SwiperSlide } from 'swiper/react';
+} from "@/components/ui/carousel"; // Import Carousel dari ShadCN UI
+import Animation from "../layout exmple/circle";
+import CircularText from "../layout exmple/circle";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 type Event = {
   ticketType: string;
@@ -71,13 +71,13 @@ const CategoryList: React.FC = () => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:8000/api/category/categories',
+          "http://localhost:8000/api/category/categories"
         );
         setCategories(response.data);
         setLoading(false);
       } catch (err: any) {
-        console.log('Error fetching categories:', err);
-        setError('Failed to fetch categories');
+        console.log("Error fetching categories:", err);
+        setError("Failed to fetch categories");
         setLoading(false);
       }
     };
@@ -85,12 +85,12 @@ const CategoryList: React.FC = () => {
     const fetchLocations = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:8000/api/location/location',
+          "http://localhost:8000/api/location/location"
         );
         setLocations(response.data);
       } catch (err) {
-        console.log('Error fetching locations:', err);
-        setError('Failed to fetch locations');
+        console.log("Error fetching locations:", err);
+        setError("Failed to fetch locations");
         setLoading(false);
       }
     };
@@ -116,7 +116,9 @@ const CategoryList: React.FC = () => {
   };
 
   if (loading)
-    return <div className="w-full flex justify-center h-screen">Loading ... </div>;
+    return (
+      <div className="w-full flex justify-center h-screen">Loading ... </div>
+    );
   if (error) return <div>{error}</div>;
 
   const paginate = (events: Event[]) => {
@@ -135,9 +137,9 @@ const CategoryList: React.FC = () => {
       ? categories.find((category) => category.id === currentCategory)?.event ||
         []
       : currentLocation !== null
-        ? locations.find((location) => location.id === currentLocation)
-            ?.event || []
-        : allEvents;
+      ? locations.find((location) => location.id === currentLocation)?.event ||
+        []
+      : allEvents;
 
   return (
     <div className="">
@@ -160,7 +162,7 @@ const CategoryList: React.FC = () => {
                 </div>
                 <div className="mb-5 sm:mb-5 flex flex-nowrap justify-center font-sans rounded-md space-x-1 sm:space-x-2 lg:space-x-4 flex-col items-center ">
                   <div className="py-0 space-x-1 text-center">
-                    {' '}
+                    {" "}
                     {/* Category Filter */}
                     {categories.length > 0 ? (
                       categories.map((category) => (
@@ -169,8 +171,8 @@ const CategoryList: React.FC = () => {
                           onClick={() => handleCategoryClick(category.id)}
                           className={`px-1 sm:px-2 lg:px-4 py-1 lg:py-1 rounded-full font-semibold transition-transform font-sans text-xs lg:text-base transform border-black/60 border-[1px] my-1 text-center ${
                             currentCategory === category.id
-                              ? 'bg-orange-400/90 text-gray-900 hover:bg-gray-500/90'
-                              : 'bg-orange-200 text-gray-900 hover:bg-gray-400'
+                              ? "bg-orange-400/90 text-gray-900 hover:bg-gray-500/90"
+                              : "bg-orange-200 text-gray-900 hover:bg-gray-400"
                           } shadow-md`}
                         >
                           {category.categoryName}
@@ -178,9 +180,9 @@ const CategoryList: React.FC = () => {
                       ))
                     ) : (
                       <div className="text-sm text-gray-900">
-                        No categories available{' '}
+                        No categories available{" "}
                       </div>
-                    )}{' '}
+                    )}{" "}
                   </div>
                   <div className="py-1 space-x-1">
                     {/* Location Filter */}
@@ -196,19 +198,21 @@ const CategoryList: React.FC = () => {
                         <div
                           className="flex transition-transform"
                           style={{
-                            transform: `translateX(-${currentIndex * (100 / itemsToShow)}%)`,
+                            transform: `translateX(-${
+                              currentIndex * (100 / itemsToShow)
+                            }%)`,
                           }}
                         >
                           {locations.map((location) => (
                             <div key={location.id}>
-                              {' '}
+                              {" "}
                               {/* Adjusted widths for better responsiveness */}
                               <Button
                                 onClick={() => handleLocationClick(location.id)}
                                 className={`px-1 sm:px-2 lg:px-4 py-1 lg:py-1 rounded-full font-semibold transition-transform font-sans text-xs lg:text-base transform border-black/60 border-[1px] mx-1 dark:text-white/80 hover:text-white/80 text-black/80 dark:bg-black/80 ${
                                   currentLocation === location.id
-                                    ? 'bg-gray-400 text-gray-900'
-                                    : 'bg-gray-600 text-gray-100'
+                                    ? "bg-gray-400 text-gray-900"
+                                    : "bg-gray-600 text-gray-100"
                                 }`}
                               >
                                 {location.locationName}
@@ -225,7 +229,7 @@ const CategoryList: React.FC = () => {
                         &gt;
                       </button>
                     </div>
-                  </div>{' '}
+                  </div>{" "}
                 </div>
                 <div className="space-y-2 sm:md:xl:lg:w-[1200px] grid grid-cols-1 grid-rows-3 gap-5 sm:grid-cols-3 sm:grid-rows-3 mx-0 xl:grid-cols-4 xl:h-[1990px] lg:h-[2500px] md:h-[2400px] ">
                   {filteredEvents.length > 0 ? (
@@ -247,8 +251,8 @@ const CategoryList: React.FC = () => {
                             <div className="h-56 mb-0 rounded-3xl">
                               <Carousel>
                                 <CarouselContent
-                                  style={{ transform: `translateX(-${100}%)` }} 
-                                  className='ml-0'
+                                  style={{ transform: `translateX(-${100}%)` }}
+                                  className="ml-0"
                                 >
                                   {event.images.map((image) => (
                                     <CarouselItem
@@ -266,7 +270,7 @@ const CategoryList: React.FC = () => {
                                     </CarouselItem>
                                   ))}
                                 </CarouselContent>
-                              </Carousel>{' '}
+                              </Carousel>{" "}
                             </div>
                             <h1 className="text-sm sm:text-base lg:text-xl font-sans mt-2 lg:mt-4 lg:mb-2 text-center text-gray-950 font-thin line-clamp-1 h-6 mx-3 dark:text-white/80">
                               {event.title}
@@ -281,19 +285,19 @@ const CategoryList: React.FC = () => {
                                   {event.location.locationName}
                                 </span>
                               </div>
-                            </div>  
+                            </div>
                             <div
                               className={`text-${
-                                isEnded ? 'red' : isOngoing ? 'green' : 'gray'
+                                isEnded ? "red" : isOngoing ? "green" : "gray"
                               }-600 font-sans dark:text-black/80 text-white/80 bg-black/80 dark:bg-white/80 rounded-full pl-3 flex text-sm lg:text-base my-2`}
                             >
                               status:
                               <span className="dark:text-black/80 text-white/80 font-sans bg-gray-0 flex rounded-full px-1 mr-1 py-0">
                                 {isEnded
-                                  ? 'Ended'
+                                  ? "Ended"
                                   : isOngoing
-                                    ? 'Ongoing'
-                                    : 'Upcoming'}
+                                  ? "Ongoing"
+                                  : "Upcoming"}
                               </span>
                             </div>
                             <div className="text-gray-600 font-sans dark:text-black/80 text-white/80 bg-black/80 dark:bg-white/80 flex rounded-full pl-3 my-0 text-sm lg:text-base">
@@ -331,8 +335,8 @@ const CategoryList: React.FC = () => {
                       onClick={() => setCurrentPage(currentPage - 1)}
                       className={`${
                         currentPage === 1
-                          ? 'bg-gray-500 cursor-not-allowed'
-                          : 'bg-gray-700 hover:bg-gray-600'
+                          ? "bg-gray-500 cursor-not-allowed"
+                          : "bg-gray-700 hover:bg-gray-600"
                       } text-white px-4 py-2 rounded-full transition-all duration-200 ease-in-out flex items-center`}
                     >
                       <svg
@@ -361,8 +365,8 @@ const CategoryList: React.FC = () => {
                       onClick={() => setCurrentPage(currentPage + 1)}
                       className={`${
                         currentPage === totalPages(filteredEvents)
-                          ? 'bg-gray-500 cursor-not-allowed'
-                          : 'bg-gray-700 hover:bg-gray-600'
+                          ? "bg-gray-500 cursor-not-allowed"
+                          : "bg-gray-700 hover:bg-gray-600"
                       } text-white px-4 py-2 rounded-full transition-all duration-200 ease-in-out flex items-center`}
                     >
                       Next
@@ -383,8 +387,8 @@ const CategoryList: React.FC = () => {
                     </Button>
                   </div>
                 )}
-              </div>{' '}
-            </div>{' '}
+              </div>{" "}
+            </div>{" "}
           </div>
         </div>
       </div>
@@ -393,4 +397,3 @@ const CategoryList: React.FC = () => {
 };
 
 export default CategoryList;
-  

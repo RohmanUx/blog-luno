@@ -26,10 +26,10 @@ class ProfileController {
                         },
                     });
                     if (!findUser) {
-                        console.log('USER:', findUser);
+                        console.log("USER:", findUser);
                         return res.status(404).send({
                             success: false,
-                            message: 'User not found',
+                            message: "User not found",
                         });
                     }
                 }
@@ -67,7 +67,7 @@ class ProfileController {
             }
             catch (error) {
                 console.log(error);
-                next({ success: false, message: 'Failed to get your information' });
+                next({ success: false, message: "Failed to get your information" });
             }
             `  `;
         });
@@ -86,7 +86,7 @@ class ProfileController {
                     if (!findUser) {
                         return res.status(404).send({
                             succesS: false,
-                            message: 'Profile not found',
+                            message: "Profile not found",
                         });
                     }
                     const findLocation = yield prisma_1.default.location.findFirst({
@@ -123,7 +123,7 @@ class ProfileController {
                         console.log(createProfile);
                         return res.status(200).send({
                             success: true,
-                            message: 'successfully add your profile',
+                            message: "successfully add your profile",
                             result: createProfile,
                         });
                     }
@@ -155,7 +155,7 @@ class ProfileController {
                         });
                         return res.status(200).send({
                             success: true,
-                            message: 'successfully add your profile',
+                            message: "successfully add your profile",
                             result: createProfile,
                         });
                     }
@@ -163,7 +163,7 @@ class ProfileController {
                 else {
                     return res.status(404).send({
                         success: false,
-                        message: 'Token not found',
+                        message: "Token not found",
                         result: res.locals.decrypt.id,
                     });
                 }
@@ -191,7 +191,7 @@ class ProfileController {
                     if (!findUser) {
                         return res.status(404).send({
                             success: false,
-                            message: 'User profile not found',
+                            message: "User profile not found",
                         });
                     }
                     // if (findUser.images) {
@@ -248,7 +248,7 @@ class ProfileController {
                     console.log(updatedProfile);
                     return res.status(200).send({
                         success: false,
-                        message: 'Profile updated succesfully',
+                        message: "Profile updated succesfully",
                         result: updatedProfile,
                     });
                 }
@@ -256,7 +256,7 @@ class ProfileController {
             catch (error) {
                 next({
                     success: false,
-                    message: 'Cannot update your profile',
+                    message: "Cannot update your profile",
                     error,
                 });
             }
