@@ -9,8 +9,6 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel"; // Import Carousel dari ShadCN UI
-import Animation from "../layout exmple/circle";
-import CircularText from "../layout exmple/circle";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 type Event = {

@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { Navbar } from "../layout exmple/navbar";
 import Image from "next/image";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import Link from "next/link";
