@@ -9,7 +9,6 @@ import {
   AiOutlineProfile,
   AiOutlineUnorderedList,
 } from "react-icons/ai";
-import { Navbar } from "../layout exmple/navbar";
 
 const Dashboard: React.FC = () => {
   const router = useRouter();
